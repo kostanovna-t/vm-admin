@@ -1,0 +1,103 @@
+.page-container {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  .page-content {
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.5rem;
+
+    .charts-container {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      justify-content: space-between;
+
+      .chart-section {
+        &:first-child {
+          width: 27.5rem; 
+        }
+
+        &:last-child {
+          width: 46.5rem;
+        }
+        min-width: 0;
+      }
+    }
+
+    .vm-table-wrapper {
+      width: 100%;
+      margin-top: 1.5rem;
+
+      .vm-table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        span {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #111827;
+        }
+
+        button {
+          padding: 0.5rem 1rem;
+          background-color: #5F3196;
+          color: white;
+          border: none;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: #5F3196;
+          }
+        }
+      }
+    }
+
+    .new-vm-button {
+      height: 2.5rem;
+      min-width: 5.375rem;
+      padding: 0.5rem 1rem;
+      background-color: #5F3196;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 80rem) {
+  .page-container {
+    .page-content {
+      padding: 1.5rem 1rem;
+      
+      .charts-container {
+        flex-direction: column;
+        align-items: center;
+        
+        .chart-section {
+          &:first-child,
+          &:last-child {
+            width: 100%;
+            max-width: 46.5rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+.vm-table-wrapper {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  
+  .vm-table {
+    width: 100%;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    overflow: hidden;
+    
+    &__header {
+      display: grid;
+      grid-template-columns: minmax(0, 19.7%) minmax(0, 13.3%) minmax(0, 11.4%) minmax(0, 11.4%) minmax(0, 11.4%) minmax(0, 15.1%) minmax(0, 15.5%);
+      gap: 1.5rem;
+      padding: 1rem;
+      color: #333;
+      background-color: transparent;
+      border-radius: 0.5rem 0.5rem 0 0;
+      
+      span {
+        padding: 0.5rem;
+        
+        &.sortable {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: color 0.2s ease;
+          
+          &:hover {
+            color: #5F3196;
+          }
+          
+          svg {
+            width: 0.625rem;
+            height: 0.625rem;
+            flex-shrink: 0;
+          }
+          
+          .sort-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+            
+            svg {
+              width: 0.625rem;
+              height: 0.625rem;
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+    }
+    
+    &__body {
+      .vm-table__row {
+        background: #FFFFFF;
+        display: grid;
+        grid-template-columns: minmax(0, 19.7%) minmax(0, 13.3%) minmax(0, 11.4%) minmax(0, 11.4%) minmax(0, 11.4%) minmax(0, 15.1%) minmax(0, 15.5%);
+        gap: 1.5rem;
+        padding: 1rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        border-bottom: 0.0625rem solid #F0F0F0;
+        align-items: center;
+        
+        &:last-child {
+          border-bottom: none;
+          border-radius: 0 0 0.5rem 0.5rem;
+        }
+        
+        span {
+          min-width: 0;
+
+          &.id-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 100%;
+
+            .id-text {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: calc(100% - 2rem);
+              min-width: 0;
+            }
+
+            .copy-button {
+              background: none;
+              border: none;
+              padding: 0.25rem;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              color: #666;
+              transition: color 0.2s ease;
+              order: -1;
+              flex-shrink: 0;
+
+              &:hover {
+                color: #5F3196;
+
+                .tooltip {
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
+
+              &.copied {
+                color: #4CAF50;
+              }
+
+              .tooltip {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 0.25rem 0.5rem;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                border-radius: 0.25rem;
+                font-size: 0.75rem;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease, visibility 0.2s ease;
+                margin-bottom: 0.25rem;
+              }
+            }
+          }
+        }
+        
+        .status {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.25rem 0.75rem;
+          border-radius: 1rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          white-space: nowrap;
+          text-align: center;
+          
+          &.running {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+          }
+          
+          &.stopped {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #F44336;
+          }
+        }
+        
+        .bar {
+          margin-top: 0.25rem;
+          height: 0.5rem;
+          background-color: #F8F6FB;
+          border-radius: 0.125rem;
+          overflow: hidden;
+          
+          .fill {
+            height: 100%;
+            background-color: #5F3196;
+            border-radius: 0.125rem;
+            transition: width 0.3s ease;
+            
+          
+          }
+        }
+        
+        .alert-cell {
+          display: inline-flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0.25rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          white-space: nowrap;
+          
+          svg {
+            flex-shrink: 0;
+            width: 1rem;
+            height: 1rem;
+          }
+
+          .alert-count {
+            font-weight: 600;
+            color: #333;
+            min-width: 0.5rem;
+          }
+
+          .alert-type {
+            color: #666;
+          }
+
+          &.alert-all-good {
+            svg {
+              color: #4CAF50;
+            }
+            .alert-type {
+              color: #4CAF50;
+            }
+          }
+        }
+      }
+    }
+  }
+}
